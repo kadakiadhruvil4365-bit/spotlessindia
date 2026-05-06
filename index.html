@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spotless India Foundation</title>
+<title>Spotless India</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -50,10 +50,10 @@
   }
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
   .nav-logo-mark {
-    width: 36px; height: 36px; background: var(--saffron); border-radius: 50%;
+    width: 44px; height: 44px; border-radius: 10px; overflow: hidden;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 600; font-size: 13px; color: white;
   }
+  .nav-logo-mark img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
   .nav-name { font-weight: 600; font-size: 15px; color: var(--text-dark); line-height: 1.2; }
   .nav-name small { display: block; font-size: 10px; font-weight: 400; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
   .nav-links { display: flex; gap: 28px; list-style: none; }
@@ -156,18 +156,18 @@
   .how-text { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
 
   /* WASTE */
-  .waste-section { background: var(--green); padding: 80px 5%; }
-  .waste-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: rgba(255,255,255,0.1); margin-top: 12px; }
-  .waste-card { background: var(--green); padding: 32px 16px; text-align: center; transition: background 0.2s; }
-  .waste-card:hover { background: var(--green-dark); }
+  .waste-section { background: var(--w3); padding: 80px 5%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .waste-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; margin-top: 12px; }
+  .waste-card { background: var(--w1); border: 1px solid var(--border); border-radius: 8px; padding: 32px 16px; text-align: center; transition: background 0.2s; }
+  .waste-card:hover { background: var(--saffron-light); }
   .waste-swatch { width: 44px; height: 44px; border-radius: 50%; margin: 0 auto 14px; }
   .waste-name { font-size: 13px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .waste-desc { font-size: 11px; line-height: 1.6; color: rgba(255,255,255,0.55); }
-  .w-y .waste-swatch { background: #FFD600; } .w-y .waste-name { color: #FFD600; }
-  .w-g .waste-swatch { background: #A8E07A; } .w-g .waste-name { color: #A8E07A; }
-  .w-r .waste-swatch { background: #E24B4A; } .w-r .waste-name { color: #F09595; }
-  .w-b .waste-swatch { background: #378ADD; } .w-b .waste-name { color: #85B7EB; }
-  .w-k .waste-swatch { background: #555; border: 1px solid #888; } .w-k .waste-name { color: #B4B2A9; }
+  .waste-desc { font-size: 11px; line-height: 1.6; color: var(--text-muted); }
+  .w-y .waste-swatch { background: #FFD600; } .w-y .waste-name { color: #B89B00; }
+  .w-g .waste-swatch { background: #4CAF50; } .w-g .waste-name { color: var(--green); }
+  .w-r .waste-swatch { background: #E24B4A; } .w-r .waste-name { color: #A32D2D; }
+  .w-b .waste-swatch { background: #378ADD; } .w-b .waste-name { color: #185FA5; }
+  .w-k .waste-swatch { background: #555; border: 1px solid #888; } .w-k .waste-name { color: #444; }
 
   /* LATEST */
   .latest-section { background: var(--w4); padding: 80px 5%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -228,8 +228,7 @@
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="announce-bar">
+  <div class="announce-bar">
   <p>Our first Sunday cleanup session is coming soon — Bharuch, Gujarat</p>
   <a href="#">Register Now &rarr;</a>
 </div>
@@ -237,8 +236,8 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <div class="nav-logo-mark">SI</div>
-    <span class="nav-name">Spotless India Foundation <small>निर्मल भारत</small></span>
+    <div class="nav-logo-mark"><img src="logo-dark.jpeg" alt="Spotless India logo"/></div>
+    <span class="nav-name">Spotless India <small>निर्मल भारत</small></span>
   </a>
   <ul class="nav-links">
     <li><a href="#">About Us</a></li>
@@ -348,9 +347,9 @@
 
 <!-- WASTE SYSTEM -->
 <section class="waste-section">
-  <div class="section-label" style="color:rgba(255,255,255,0.5);">The kit system</div>
-  <h2 class="section-title" style="color:white; margin-bottom:8px;">5-colour waste segregation</h2>
-  <p class="section-sub" style="color:rgba(255,255,255,0.6);">Every volunteer carries a kit. Every piece of waste goes into the right bag. Every bag goes to the right place.</p>
+  <div class="section-label">The kit system</div>
+  <h2 class="section-title">5-colour waste segregation</h2>
+  <p class="section-sub">Every volunteer carries a kit. Every piece of waste goes into the right bag. Every bag goes to the right place.</p>
   <div class="waste-grid">
     <div class="waste-card w-y"><div class="waste-swatch"></div><div class="waste-name">Yellow</div><p class="waste-desc">Dry recyclables — paper, cardboard, plastics. To GIDC recyclers, Ankleshwar.</p></div>
     <div class="waste-card w-g"><div class="waste-swatch"></div><div class="waste-name">Green</div><p class="waste-desc">Organic / wet waste. To Bharuch municipal dump yard composting.</p></div>
@@ -414,9 +413,10 @@
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name">Spotless India Foundation</div>
+      <div class="footer-brand-name">Spotless India</div>
       <span class="footer-brand-dev">निर्मल भारत</span>
       <p class="footer-brand-desc">A Section 8 non-profit civic movement. Every rupee tracked publicly. Annual audit published. Zero cash policy.</p>
+      <img src="logo-watermark.jpeg" alt="Spotless India" style="width:120px; opacity:0.5; margin-bottom:16px; border-radius:4px;"/>
       <div class="footer-social">
         <a href="#" class="social-btn">f</a>
         <a href="#" class="social-btn">in</a>
@@ -459,7 +459,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Spotless India Foundation · Bharuch, Gujarat · spotlessindia.org · Charity Registration: (pending)</p>
+    <p>© 2025 Spotless India · Bharuch, Gujarat · spotlessindia.org · Charity Registration: (pending)</p>
     <a href="#">@spotlessindia</a>
   </div>
 </footer>
