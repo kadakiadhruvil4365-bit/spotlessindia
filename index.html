@@ -224,6 +224,98 @@
   .footer-bottom { border-top: 1px solid var(--border); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
   .footer-bottom p { font-size: 11px; color: var(--text-muted); }
   .footer-bottom a { font-size: 11px; color: var(--saffron); text-decoration: none; }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--text-dark); border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .nav-mobile {
+    display: none; flex-direction: column;
+    background: var(--w1); border-top: 1px solid var(--border);
+    padding: 16px 5% 20px;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-size: 15px; color: var(--text-mid); text-decoration: none;
+    padding: 12px 0; border-bottom: 1px solid var(--border);
+  }
+  .nav-mobile a:last-child { border-bottom: none; }
+  .nav-mobile .nav-mobile-cta {
+    margin-top: 16px; background: var(--saffron); color: white;
+    padding: 12px; border-radius: 4px; text-align: center;
+    font-weight: 600; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 0.5px; border: none; cursor: pointer;
+    text-decoration: none; display: block;
+  }
+
+  /* ── TABLET (max 900px) ── */
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .hero-title { font-size: clamp(38px, 7vw, 60px); }
+    .impact-grid { grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .impact-item { border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 24px; }
+    .impact-item:nth-child(2n) { border-right: none; }
+    .how-grid { grid-template-columns: 1fr; }
+    .waste-grid { grid-template-columns: repeat(3,1fr); }
+    .latest-grid { grid-template-columns: 1fr; gap: 32px; }
+    .partners-grid { grid-template-columns: repeat(2,1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .pillars-grid { gap: 12px; }
+    .pillar-badge { width: 120px; }
+  }
+
+  /* ── MOBILE (max 600px) ── */
+  @media (max-width: 600px) {
+    .announce-bar { padding: 8px 4%; text-align: center; }
+    .announce-bar p { font-size: 12px; }
+    nav { padding: 0 4%; height: 60px; }
+    .hero { min-height: 100svh; }
+    .hero-content { padding: 40px 4% 60px; }
+    .hero-overline { font-size: 10px; margin-bottom: 16px; }
+    .hero-title { font-size: clamp(36px, 10vw, 52px); }
+    .hero-devanagari { font-size: 13px; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .hero-tagline { font-size: 15px; }
+    .hero-actions { width: 100%; flex-direction: column; }
+    .btn-saffron, .btn-ghost { width: 100%; text-align: center; padding: 14px; }
+    .about-section { padding: 48px 4%; }
+    .about-section p { font-size: 15px; }
+    .impact-section { padding: 48px 4%; }
+    .impact-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
+    .impact-num { font-size: clamp(40px, 10vw, 60px); }
+    .pillars-section { padding: 48px 4%; }
+    .pillar-badge { width: 100px; padding: 20px 8px; }
+    .pillar-icon { font-size: 22px; }
+    .pillar-name { font-size: 10px; }
+    .section { padding: 48px 4%; }
+    .section-sub { margin-bottom: 32px; }
+    .how-grid { grid-template-columns: 1fr; }
+    .how-card { padding: 28px 20px; }
+    .waste-section { padding: 48px 4%; }
+    .waste-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .waste-card:last-child { grid-column: 1 / -1; }
+    .latest-section { padding: 48px 4%; }
+    .latest-grid { grid-template-columns: 1fr; gap: 28px; }
+    .latest-stats { grid-template-columns: 1fr 1fr; }
+    .partners-section { padding: 48px 4%; }
+    .partners-grid { grid-template-columns: repeat(2,1fr); }
+    .cta-section { padding: 60px 4%; }
+    .cta-buttons { flex-direction: column; }
+    .btn-white, .btn-white-outline { width: 100%; text-align: center; padding: 14px; }
+    footer { padding: 48px 4% 0; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .newsletter-section { flex-direction: column; align-items: flex-start; }
+    .newsletter-form { width: 100%; }
+    .newsletter-form input { flex: 1; width: auto; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -247,7 +339,18 @@
     <li><a href="#">Contact</a></li>
   </ul>
   <button class="nav-cta">Join This Sunday</button>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileMenu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile" id="mobileMenu">
+  <a href="#">About Us</a>
+  <a href="#">How It Works</a>
+  <a href="#">Dashboard</a>
+  <a href="#">Get Involved</a>
+  <a href="#">Contact</a>
+  <a href="#" class="nav-mobile-cta">Join This Sunday</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
