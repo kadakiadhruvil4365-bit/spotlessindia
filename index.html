@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotless India Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --saffron: #E87722;
+    --saffron-dark: #C5601A;
+    --saffron-light: #FFF4EA;
+    --saffron-border: #F5C99A;
+    --green: #3B6D11;
+    --green-light: #EAF3DE;
+    --green-mid: #639922;
+    --green-dark: #27500A;
+    --green-border: #C0DD97;
+    --w1: #FFFFFF;
+    --w2: #F9F8F5;
+    --w3: #F4F3EE;
+    --w4: #EFEDE7;
+    --text-dark: #1A1A1A;
+    --text-mid: #555;
+    --text-muted: #999;
+    --border: #E8E5DD;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: var(--text-dark); font-size: 16px; line-height: 1.6; }
+
+  /* ANNOUNCEMENT BAR */
+  .announce-bar {
+    background: var(--saffron); padding: 10px 5%;
+    display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;
+  }
+  .announce-bar p { font-size: 13px; font-weight: 500; color: white; }
+  .announce-bar a {
+    font-size: 12px; font-weight: 600; color: white;
+    background: rgba(255,255,255,0.25); padding: 4px 14px; border-radius: 3px;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .announce-bar a:hover { background: rgba(255,255,255,0.4); }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--w1); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 68px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-mark {
+    width: 36px; height: 36px; background: var(--saffron); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 600; font-size: 13px; color: white;
+  }
+  .nav-name { font-weight: 600; font-size: 15px; color: var(--text-dark); line-height: 1.2; }
+  .nav-name small { display: block; font-size: 10px; font-weight: 400; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-size: 13px; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--saffron); }
+  .nav-cta {
+    background: var(--saffron); color: white; border: none;
+    padding: 10px 22px; border-radius: 4px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .nav-cta:hover { background: var(--saffron-dark); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 86vh;
+    background: #1E3A08;
+    display: flex; align-items: flex-end; overflow: hidden;
+  }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #4A6820 0%, #2D4A10 40%, #0D1A04 100%); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,20,4,0.85) 0%, rgba(10,20,4,0.2) 60%, transparent 100%); }
+  .hero-content { position: relative; z-index: 2; padding: 60px 5% 80px; width: 100%; }
+  .hero-overline {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--saffron); margin-bottom: 24px;
+  }
+  .hero-overline::before { content: ''; width: 28px; height: 2px; background: var(--saffron); }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 94px); font-weight: 700; line-height: 1.0; color: white; max-width: 860px;
+  }
+  .hero-title .t-saffron { color: var(--saffron); display: block; }
+  .hero-title .t-green { color: #7DC953; display: block; }
+  .hero-devanagari { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 15px; color: rgba(255,255,255,0.35); display: block; margin: 14px 0 32px; }
+  .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 28px; }
+  .hero-tagline { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 400px; line-height: 1.6; border-left: 3px solid var(--saffron); padding-left: 18px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-saffron {
+    background: var(--saffron); color: white; padding: 13px 30px; border-radius: 4px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+    border: none; cursor: pointer; text-decoration: none; display: inline-block;
+    text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .btn-saffron:hover { background: var(--saffron-dark); }
+  .btn-ghost { background: transparent; color: white; padding: 13px 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4); font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-block; }
+
+  /* ABOUT */
+  .about-section { background: var(--w1); padding: 72px 5%; text-align: center; border-bottom: 1px solid var(--border); }
+  .about-section p { font-size: 17px; font-weight: 300; color: var(--text-mid); max-width: 700px; margin: 0 auto 14px; line-height: 1.85; }
+  .about-link { color: var(--green); font-size: 14px; font-weight: 500; text-decoration: none; }
+  .about-link:hover { color: var(--green-dark); }
+
+  /* IMPACT */
+  .impact-section { background: var(--w3); padding: 72px 5%; text-align: center; border-bottom: 1px solid var(--border); }
+  .section-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 48px; }
+  .impact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+  .impact-item { padding: 0 20px; border-right: 1px solid var(--border); }
+  .impact-item:last-child { border-right: none; }
+  .impact-num { font-family: 'Playfair Display', serif; font-size: clamp(52px, 6vw, 78px); font-weight: 700; color: var(--saffron); line-height: 1; margin-bottom: 8px; }
+  .impact-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+  .impact-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* FLAG STRIP */
+  .flag-strip { height: 5px; display: flex; }
+  .fs-s { flex:1; background: var(--saffron); }
+  .fs-w { flex:1; background: var(--border); }
+  .fs-g { flex:1; background: var(--green); }
+
+  /* PILLARS */
+  .pillars-section { background: var(--w2); padding: 80px 5%; text-align: center; border-bottom: 1px solid var(--border); }
+  .pillars-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 36px); font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+  .pillars-sub { font-size: 15px; font-weight: 300; color: var(--text-muted); margin-bottom: 52px; }
+  .pillars-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+  .pillar-badge {
+    width: 148px; padding: 28px 16px;
+    clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; transition: transform 0.2s; cursor: default;
+  }
+  .pillar-badge:hover { transform: translateY(-4px); }
+  .pillar-icon { font-size: 28px; margin-bottom: 10px; }
+  .pillar-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; }
+  .pb-1 { background: var(--saffron); color: white; }
+  .pb-2 { background: var(--green); color: white; }
+  .pb-3 { background: #F5A355; color: white; }
+  .pb-4 { background: #27500A; color: white; }
+  .pb-5 { background: var(--green-mid); color: white; }
+
+  /* HOW IT WORKS */
+  .section { padding: 80px 5%; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; line-height: 1.2; color: var(--text-dark); margin-bottom: 14px; }
+  .section-sub { font-size: 16px; font-weight: 300; color: var(--text-mid); max-width: 540px; margin-bottom: 52px; line-height: 1.75; }
+  .how-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); }
+  .how-card { background: var(--w1); padding: 40px 32px; transition: background 0.2s; }
+  .how-card:hover { background: var(--saffron-light); }
+  .how-number { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 700; color: var(--saffron-border); line-height: 1; margin-bottom: 16px; }
+  .how-title { font-size: 17px; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
+  .how-text { font-size: 14px; font-weight: 300; color: var(--text-muted); line-height: 1.75; }
+
+  /* WASTE */
+  .waste-section { background: var(--green); padding: 80px 5%; }
+  .waste-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: rgba(255,255,255,0.1); margin-top: 12px; }
+  .waste-card { background: var(--green); padding: 32px 16px; text-align: center; transition: background 0.2s; }
+  .waste-card:hover { background: var(--green-dark); }
+  .waste-swatch { width: 44px; height: 44px; border-radius: 50%; margin: 0 auto 14px; }
+  .waste-name { font-size: 13px; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .waste-desc { font-size: 11px; line-height: 1.6; color: rgba(255,255,255,0.55); }
+  .w-y .waste-swatch { background: #FFD600; } .w-y .waste-name { color: #FFD600; }
+  .w-g .waste-swatch { background: #A8E07A; } .w-g .waste-name { color: #A8E07A; }
+  .w-r .waste-swatch { background: #E24B4A; } .w-r .waste-name { color: #F09595; }
+  .w-b .waste-swatch { background: #378ADD; } .w-b .waste-name { color: #85B7EB; }
+  .w-k .waste-swatch { background: #555; border: 1px solid #888; } .w-k .waste-name { color: #B4B2A9; }
+
+  /* LATEST */
+  .latest-section { background: var(--w4); padding: 80px 5%; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .latest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .location-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--green-light); border: 1px solid var(--green-border); border-radius: 3px; padding: 6px 12px; font-size: 12px; color: var(--green-dark); font-weight: 500; margin-bottom: 18px; }
+  .latest-info h3 { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; line-height: 1.3; }
+  .latest-info p { font-size: 15px; color: var(--text-mid); line-height: 1.75; margin-bottom: 28px; }
+  .latest-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .latest-stat { background: var(--w1); border-radius: 4px; padding: 22px 18px; border: 1px solid var(--border); border-top: 3px solid var(--saffron); }
+  .latest-stat .val { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--text-dark); line-height: 1; margin-bottom: 5px; }
+  .latest-stat .lbl { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* PARTNERS */
+  .partners-section { background: var(--w2); padding: 72px 5%; border-bottom: 1px solid var(--border); }
+  .partners-section .section-eyebrow { margin-bottom: 10px; text-align: center; }
+  .partners-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; text-align: center; color: var(--text-dark); margin-bottom: 40px; }
+  .partners-grid-bg { background: var(--w3); border: 1px solid var(--border); border-radius: 6px; padding: 32px; }
+  .partners-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); }
+  .partner-slot { background: var(--w3); padding: 28px 24px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--green); font-weight: 500; text-align: center; min-height: 80px; transition: background 0.2s; }
+  .partner-slot:hover { background: var(--green-light); }
+  .partner-slot.vacant { color: var(--text-muted); font-style: italic; font-weight: 300; font-size: 12px; }
+
+  /* CTA */
+  .cta-section { background: var(--saffron); padding: 88px 5%; text-align: center; }
+  .cta-overline { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 20px; }
+  .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 60px); font-weight: 700; color: white; line-height: 1.1; margin-bottom: 16px; }
+  .cta-title em { font-style: italic; color: rgba(255,255,255,0.7); }
+  .cta-sub { font-size: 17px; font-weight: 300; color: rgba(255,255,255,0.8); max-width: 480px; margin: 0 auto 44px; line-height: 1.7; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-white { background: white; color: var(--saffron); padding: 14px 36px; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; border: none; cursor: pointer; text-decoration: none; display: inline-block; text-transform: uppercase; letter-spacing: 0.4px; }
+  .btn-white-outline { background: transparent; color: white; padding: 14px 36px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.5); font-family: 'DM Sans', sans-serif; font-size: 14px; cursor: pointer; text-decoration: none; display: inline-block; }
+
+
+
+  /* FOOTER */
+  footer { background: #2A2A2A; padding: 64px 5% 0; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 20px; color: white; margin-bottom: 4px; }
+  .footer-brand-dev { font-family: 'Noto Sans Devanagari', sans-serif; font-size: 13px; color: rgba(255,255,255,0.3); display: block; margin-bottom: 12px; }
+  .footer-brand-desc { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 260px; margin-bottom: 20px; }
+  .footer-social { display: flex; gap: 10px; }
+  .social-btn { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.1); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 12px; font-weight: 600; transition: background 0.2s; text-decoration: none; }
+  .social-btn:hover { background: var(--saffron); color: white; }
+  .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: white; }
+  .newsletter-section { padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+  .newsletter-text p { font-size: 14px; font-weight: 500; color: white; margin-bottom: 3px; }
+  .newsletter-text small { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .newsletter-form { display: flex; }
+  .newsletter-form input { padding: 10px 16px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-right: none; color: white; font-family: 'DM Sans', sans-serif; font-size: 13px; border-radius: 4px 0 0 4px; outline: none; width: 240px; }
+  .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+  .newsletter-form button { background: var(--saffron); color: white; border: none; padding: 10px 20px; border-radius: 0 4px 4px 0; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.25); }
+  .footer-bottom a { font-size: 11px; color: var(--saffron); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <p>Our first Sunday cleanup session is coming soon — Bharuch, Gujarat</p>
+  <a href="#">Register Now &rarr;</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">SI</div>
+    <span class="nav-name">Spotless India Foundation <small>निर्मल भारत</small></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">How It Works</a></li>
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Get Involved</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="nav-cta">Join This Sunday</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-overline">Every Sunday · Bharuch, Gujarat</div>
+    <h1 class="hero-title">
+      One spot.
+      <span class="t-saffron">One Sunday.</span>
+      <span class="t-green">One India.</span>
+    </h1>
+    <span class="hero-devanagari">यह देश हमारा है</span>
+    <div class="hero-bottom">
+      <p class="hero-tagline">It's our India.<br>Time we treated it like one.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-saffron">Join This Sunday</a>
+        <a href="#" class="btn-ghost">How It Works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <p>Spotless India Foundation is a grassroots civic movement started in Bharuch, Gujarat. Every Sunday, volunteers gather at one public location, clean it, segregate the waste into five categories, and dispatch it to certified handlers.</p>
+  <p>We are a Section 8 non-profit. Every rupee is tracked publicly. Every invoice is filed openly. We are building the civic habit India deserves — one Sunday at a time.</p>
+  <a href="#" class="about-link">Read our story &rarr;</a>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact-section">
+  <div class="section-eyebrow">Our Impact</div>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="impact-num">1</div>
+      <div class="impact-label">City</div>
+      <div class="impact-desc">Starting in Bharuch,<br>expanding nationally</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">5</div>
+      <div class="impact-label">Waste streams</div>
+      <div class="impact-desc">Segregated, dispatched<br>to certified handlers</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">₹0</div>
+      <div class="impact-label">Wasted</div>
+      <div class="impact-desc">Every rupee goes back<br>into the campaign</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-num">1</div>
+      <div class="impact-label">Section 8 NGO</div>
+      <div class="impact-desc">Publicly audited,<br>zero cash policy</div>
+    </div>
+  </div>
+</section>
+
+<div class="flag-strip"><span class="fs-s"></span><span class="fs-w"></span><span class="fs-g"></span></div>
+
+<!-- PILLARS -->
+<section class="pillars-section">
+  <div class="section-eyebrow">What We Stand For</div>
+  <h2 class="pillars-title">The pillars of Spotless India</h2>
+  <p class="pillars-sub">Every Sunday session is built on five commitments</p>
+  <div class="pillars-grid">
+    <div class="pillar-badge pb-1"><div class="pillar-icon">🧹</div><div class="pillar-name">Civic Action</div></div>
+    <div class="pillar-badge pb-2"><div class="pillar-icon">♻️</div><div class="pillar-name">Waste Segregation</div></div>
+    <div class="pillar-badge pb-3"><div class="pillar-icon">👐</div><div class="pillar-name">Zero Cash Policy</div></div>
+    <div class="pillar-badge pb-4"><div class="pillar-icon">📊</div><div class="pillar-name">Full Transparency</div></div>
+    <div class="pillar-badge pb-5"><div class="pillar-icon">🌱</div><div class="pillar-name">City Expansion</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="background: var(--w1); border-bottom: 1px solid var(--border);">
+  <div class="section-label">What we do</div>
+  <h2 class="section-title">Clean one spot.<br>Every Sunday.</h2>
+  <p class="section-sub">A simple, repeatable model. Show up, clean up, segregate, dispatch, repeat. Every week. Every city.</p>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-number">01</div>
+      <div class="how-title">Show up on Sunday</div>
+      <p class="how-text">Every Sunday morning, volunteers gather at one announced public location — a road, market, park, or monument — and get to work.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-number">02</div>
+      <div class="how-title">Segregate &amp; dispatch</div>
+      <p class="how-text">Waste is sorted into 5 colour-coded categories and dispatched to the right recyclers, e-waste handlers, and the municipal dump yard.</p>
+    </div>
+    <div class="how-card">
+      <div class="how-number">03</div>
+      <div class="how-title">Expand city by city</div>
+      <p class="how-text">Starting in Bharuch. Every chapter runs under the same Section 8 company. No separate registration. Just a coordinator and a Sunday.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WASTE SYSTEM -->
+<section class="waste-section">
+  <div class="section-label" style="color:rgba(255,255,255,0.5);">The kit system</div>
+  <h2 class="section-title" style="color:white; margin-bottom:8px;">5-colour waste segregation</h2>
+  <p class="section-sub" style="color:rgba(255,255,255,0.6);">Every volunteer carries a kit. Every piece of waste goes into the right bag. Every bag goes to the right place.</p>
+  <div class="waste-grid">
+    <div class="waste-card w-y"><div class="waste-swatch"></div><div class="waste-name">Yellow</div><p class="waste-desc">Dry recyclables — paper, cardboard, plastics. To GIDC recyclers, Ankleshwar.</p></div>
+    <div class="waste-card w-g"><div class="waste-swatch"></div><div class="waste-name">Green</div><p class="waste-desc">Organic / wet waste. To Bharuch municipal dump yard composting.</p></div>
+    <div class="waste-card w-r"><div class="waste-swatch"></div><div class="waste-name">Red</div><p class="waste-desc">Hazardous waste — chemicals, broken glass. To hazardous section.</p></div>
+    <div class="waste-card w-b"><div class="waste-swatch"></div><div class="waste-name">Blue</div><p class="waste-desc">E-waste — batteries, wires, electronics. To CPCB-authorised handler, Gujarat.</p></div>
+    <div class="waste-card w-k"><div class="waste-swatch"></div><div class="waste-name">Black</div><p class="waste-desc">Inert / residual waste. Mixed unusable waste to municipal dump yard.</p></div>
+  </div>
+</section>
+
+<!-- LATEST SESSION -->
+<section class="latest-section">
+  <div class="section-label">Latest session</div>
+  <div class="latest-grid">
+    <div class="latest-info">
+      <div class="location-badge">Bharuch, Gujarat — Launch session</div>
+      <h3>Our first session<br>is coming soon.</h3>
+      <p>We are registering volunteers and finalising our first location in Bharuch. Follow @spotlessindia on Instagram to know exactly where and when to show up.</p>
+      <a href="#" class="btn-saffron">Register as a Volunteer</a>
+    </div>
+    <div class="latest-stats">
+      <div class="latest-stat"><div class="val">—</div><div class="lbl">Kg collected</div></div>
+      <div class="latest-stat"><div class="val">—</div><div class="lbl">Volunteers</div></div>
+      <div class="latest-stat"><div class="val">—</div><div class="lbl">Spots cleaned</div></div>
+      <div class="latest-stat"><div class="val">—</div><div class="lbl">Sundays done</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners-section">
+  <div class="section-eyebrow">Our Partners in Change</div>
+  <h2 class="partners-title">Businesses supporting the movement</h2>
+  <div class="partners-grid-bg">
+    <div class="partners-grid">
+      <div class="partner-slot">Logistics Partner</div>
+      <div class="partner-slot">CSR Partner</div>
+      <div class="partner-slot vacant">Your brand here</div>
+      <div class="partner-slot vacant">Your brand here</div>
+      <div class="partner-slot vacant">Your brand here</div>
+      <div class="partner-slot vacant">Your brand here</div>
+      <div class="partner-slot vacant">Your brand here</div>
+      <div class="partner-slot vacant">Your brand here</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-overline">Join the movement</div>
+  <h2 class="cta-title">Show up.<br><em>That's all it takes.</em></h2>
+  <p class="cta-sub">No donation required. No experience needed. Just bring yourself on a Sunday morning.</p>
+  <div class="cta-buttons">
+    <a href="#" class="btn-white">Volunteer This Sunday</a>
+    <a href="#" class="btn-white-outline">Suggest a Spot</a>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Spotless India Foundation</div>
+      <span class="footer-brand-dev">निर्मल भारत</span>
+      <p class="footer-brand-desc">A Section 8 non-profit civic movement. Every rupee tracked publicly. Annual audit published. Zero cash policy.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">yt</a>
+        <a href="#" class="social-btn">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Organisation</h4>
+      <a href="#">About Us</a>
+      <a href="#">Vision</a>
+      <a href="#">How It Works</a>
+      <a href="#">Our Team</a>
+      <a href="#">Press</a>
+    </div>
+    <div class="footer-col">
+      <h4>Transparency</h4>
+      <a href="#">Live Dashboard</a>
+      <a href="#">Open Filing</a>
+      <a href="#">Annual Audit</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get Involved</h4>
+      <a href="#">Volunteer</a>
+      <a href="#">Sponsor Us</a>
+      <a href="#">Suggest a Spot</a>
+      <a href="#">Corporate CSR</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="newsletter-section">
+    <div class="newsletter-text">
+      <p>Subscribe to Sunday updates</p>
+      <small>Session locations, impact reports, expansion news</small>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Enter your email" />
+      <button>Subscribe</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Spotless India Foundation · Bharuch, Gujarat · spotlessindia.org · Charity Registration: (pending)</p>
+    <a href="#">@spotlessindia</a>
+  </div>
+</footer>
+
+</body>
+</html>
